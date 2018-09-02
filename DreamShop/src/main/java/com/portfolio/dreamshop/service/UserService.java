@@ -1,4 +1,4 @@
-package com.portfolio.dreamshop.service;
+/*package com.portfolio.dreamshop.service;
 
 import javax.annotation.Resource;
 
@@ -17,3 +17,4 @@ public class UserService extends EgovAbstractServiceImpl{
 		return userMapper.getUser();
 	}	
 }
+*/

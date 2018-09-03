@@ -1,4 +1,4 @@
-/*package com.portfolio.dreamshop.mapper;
+package com.portfolio.dreamshop.mapper;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
@@ -6,4 +6,3 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 public interface UserMapper {
 	String getUser();
 }
-*/

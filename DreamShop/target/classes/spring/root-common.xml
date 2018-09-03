@@ -5,5 +5,4 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-	<!-- 보노보노보노삐노뻬노빼노뽀노쓰루우우우 -->
 </beans>

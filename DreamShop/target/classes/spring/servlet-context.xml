@@ -16,7 +16,7 @@
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	
 	<!-- annotation checking -->
-	<context:component-scan base-package="com" />
+	<context:component-scan base-package="com.portfolio.dreamshop" />
 
 	<!-- tiles -->
  	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
@@ -47,19 +47,46 @@
 	    <property name="username" value="${jdbc.username}" />
 	    <property name="password" value="${jdbc.password}" />
 	</bean>
-<!--     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+	
+     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
         <constructor-arg ref="sqlSessionFactory" />
-    </bean> -->
-    <!--	
+    </bean>
+	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-       <property name="dataSource" ref="dataSource" />
-       <property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
-       <property name="mapperLocations" value="classpath:com/portfolio/dreamshop/mapper/*Mapper.xml" />
+    	<property name="dataSource" ref="dataSource" />
+    	<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+    	<property name="mapperLocations" value="classpath:com/portfolio/dreamshop/mapper/*Mapper.xml" />
     </bean>
     
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.portfolio.dreamshop.mapper" />
-    </bean> -->
-
-		
+    </bean>
+    
+	<!-- 전자 정부 프레임 워크(service) -->
+    <bean id="leaveaTrace" class="egovframework.rte.fdl.cmmn.trace.LeaveaTrace">
+		<property name="traceHandlerServices">
+			<list>
+				<ref bean="traceHandlerService" />
+			</list>
+		</property>
+	</bean>
+	<bean id="traceHandlerService" class="egovframework.rte.fdl.cmmn.trace.manager.DefaultTraceHandleManager">
+		<property name="reqExpMatcher">
+			<ref bean="antPathMater" />
+		</property>
+		<property name="patterns">
+			<list>
+				<value>*</value>
+			</list>
+		</property>
+		<property name="handlers">
+			<list>
+				<ref bean="defaultTraceHandler" />
+			</list>
+		</property>
+	</bean>
+	<bean id="antPathMater" class="org.springframework.util.AntPathMatcher" />
+	<bean id="defaultTraceHandler" class="egovframework.rte.fdl.cmmn.trace.handler.DefaultTraceHandler" />
+	
+	
 </beans>

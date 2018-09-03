@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.portfolio.pictureshop">
+	<logger name="asd.asd.asd">
 		<level value="info" />
 	</logger>
 	
